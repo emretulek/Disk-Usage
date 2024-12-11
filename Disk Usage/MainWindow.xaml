@@ -1,0 +1,30 @@
+﻿<Window x:Class="Disk_Usage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Disk Usage" Height="200" Width="400"
+        WindowStyle="None" SizeToContent="Height">
+
+    <Border>
+        <Grid>
+            <ItemsControl ItemsSource="{Binding DiskUsages}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Bottom">
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <TextBlock Text="{Binding UnUsageText}" 
+                                           FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Settings.FontSize}" 
+                                           Foreground="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Settings.FontColor}"/>
+                                <TextBlock Text="{Binding TotalSpaceText}" 
+                                           FontSize="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Settings.FontSize2}" 
+                                           Foreground="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Settings.FontColor}" Margin="10 0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <ProgressBar Value="{Binding UsagePercentage}" Height="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Settings.BarHeight}" BorderThickness="0"
+                                        Foreground="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Settings.BarColor}"
+                                        Background="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=DataContext.Settings.BarBackground}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Border>
+</Window>
