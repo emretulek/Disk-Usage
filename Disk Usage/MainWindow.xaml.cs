@@ -66,7 +66,7 @@ namespace Disk_Usage
 
         public WidgetWindow WidgetWindow()
         {
-            return new WidgetWindow(this, WidgetDefaultStruct());
+            return new WidgetWindow(this);
         }
 
         public static WidgetDefaultStruct WidgetDefaultStruct()
